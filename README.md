@@ -50,7 +50,7 @@ Yes, it's even on the [Microsoft Store](https://apps.microsoft.com/detail/9n7094
 You've got two options. Open an issue and stop complaining or **use a better computer**.
 
 ### **Can I use the source code?**
-No. The source code is too big to upload (more than 25mb) and it keeps saying yowowwow or something. 
+Yes scroll up, then find it there. 
 
 ### **How do I download it?**
 Go to the [Microsoft Store](https://apps.microsoft.com/detail/9n7094pzch4q?hl=en-GB&gl=AU) or scroll up to the releases bit an press it.
