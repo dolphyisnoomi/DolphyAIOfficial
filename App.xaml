@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application
+    x:Class="ChatAppGenAI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ChatAppGenAI">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+                <!-- Other merged dictionaries here -->
+            </ResourceDictionary.MergedDictionaries>
+            <FontFamily x:Key="CustomFont">/phi3/fonts/ageo.otf#AgeoPersonalUse-Regular</FontFamily>
+            <FontFamily x:Key="CustomFont1">/phi3/fonts/montserrat.ttf#Montserrat Medium</FontFamily>
+            <FontFamily x:Key="ginto">/phi3/fonts/ginto.otf#ABC Ginto Nord Unlicensed Trial Regular</FontFamily>
+
+            <!-- Corner Radius -->
+            <CornerRadius x:Key="BubbleCornerRadius">16</CornerRadius>
+
+            <!-- Background Brushes -->
+            <SolidColorBrush x:Key="BubbleBackgroundLight">#FFF8F9FA</SolidColorBrush>
+            <LinearGradientBrush x:Key="BubbleBackgroundGradient"
+                         StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFF8F9FA" Offset="0.0" />
+                <GradientStop Color="#FFFFFFFF" Offset="1.0" />
+            </LinearGradientBrush>
+
+            <!-- Text Brushes -->
+            <SolidColorBrush x:Key="BubbleTextPrimary">#FF333333</SolidColorBrush>
+            <SolidColorBrush x:Key="BubbleTextSecondary">#FF888888</SolidColorBrush>
+
+            <!-- Subtle Drop Shadow -->
+
+            <!-- Style for the Border -->
+            <Style x:Key="ModernBubbleStyle" TargetType="Border">
+                <Setter Property="Padding" Value="16"/>
+                <Setter Property="Background" Value="{StaticResource BubbleBackgroundGradient}"/>
+                <Setter Property="CornerRadius" Value="{StaticResource BubbleCornerRadius}"/>
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <ThemeShadow/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <Storyboard x:Key="HoverStoryboard">
+                <DoubleAnimation
+    Storyboard.TargetName="HoverScale"
+    Storyboard.TargetProperty="ScaleX"
+    To="1.02" Duration="0:0:0.2"
+    AutoReverse="True"
+    EnableDependentAnimation="True"/>
+                <DoubleAnimation
+    Storyboard.TargetName="HoverScale"
+    Storyboard.TargetProperty="ScaleY"
+    To="1.02" Duration="0:0:0.2"
+    AutoReverse="True"
+    EnableDependentAnimation="True"/>
+            </Storyboard>
+            
+            
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

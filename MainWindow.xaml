@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="ChatAppGenAI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ChatAppGenAI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:animatedvisuals="using:ABI.Microsoft.UI.Xaml.Controls.AnimatedVisuals" 
+    mc:Ignorable="d"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    SizeChanged="Window_SizeChanged" 
+    Activated="Window_Activated"
+   >
+    <Window.SystemBackdrop>
+        <MicaBackdrop Kind="BaseAlt"/>
+    </Window.SystemBackdrop>
+  
+    
+    
+
+    <Grid Padding="40" x:Name="grid123" Opacity="20">
+
+
+
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" x:Name="backtowindow"></RowDefinition>
+                <RowDefinition x:Name="list" Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="70" x:Name="reccomondation"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <ThemeShadow x:Name="SharedShadow" />
+            </Grid.Resources>
+            <Button Grid.Column="0" Width="140" Content="Back to Window" x:Name="button4" Visibility="Collapsed" Click="button4_Click">
+                <Button.Shadow>
+                    <ThemeShadow/>
+                </Button.Shadow>
+            </Button>
+
+
+            <TeachingTip
+ x:Name="TeachingTipWelcome"
+ Title="Welcome to Dolphy AI"
+ Subtitle="your new assistant.">
+                <TeachingTip.IconSource>
+                    <SymbolIconSource Symbol="Emoji" />
+                </TeachingTip.IconSource>
+            </TeachingTip>
+
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" x:Name="output" FontFamily="{StaticResource ginto}" FontSize="33" FontWeight="Bold" TextWrapping="WrapWholeWords"></TextBlock>
+
+            </Grid>
+            <ListView Grid.Row="1" x:Name="InvertedListView"
+               ItemsSource="{x:Bind VM.Messages}"
+               Padding="0,0,0,20">
+                <ListView.Shadow>
+                    <ThemeShadow/>
+                </ListView.Shadow>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsStackPanel ItemsUpdatingScrollMode="KeepLastItemInView"
+                           VerticalAlignment="Bottom"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Message">
+                        <!-- Root container for each message bubble -->
+                        <Grid Margin="0,18"
+          HorizontalAlignment="{x:Bind MsgAlignment}"
+          Translation="0,0,12"
+          x:Name="MessageRoot">
+
+
+
+                            <!-- Bubble UI -->
+                            <Border CornerRadius="48"
+                Padding="24"
+                MaxWidth="620"
+                BorderThickness="1.5"
+                Background="{x:Bind BubbleBrush}"
+                                    BorderBrush="{x:Bind BorderGlow}"
+                Translation="0,6,18"
+                Loaded="Border_Loaded"
+                RenderTransformOrigin="0.5,0.5">
+
+
+
+
+
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform x:Name="BubbleScale" ScaleX="1" ScaleY="1" />
+                                        <TranslateTransform x:Name="BubbleFloat" X="0" Y="6" />
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+
+                                <Border.Shadow>
+                                    <ThemeShadow/>
+                                </Border.Shadow>
+                                
+                                
+
+                                <!-- Message Text & Timestamp -->
+                                <StackPanel Spacing="8">
+                                    <controls:MarkdownTextBlock Background="Transparent" Text="{x:Bind Text, Mode=OneWay}"
+                           FontSize="18"
+                           FontWeight="Medium"
+                           FontFamily="{StaticResource CustomFont1}"
+                           CodeBackground="MintCream"
+                           Foreground="{x:Bind TextColor}"
+                           IsTextSelectionEnabled="True"
+                           TextWrapping="Wrap"/>
+
+                                    <TextBlock Text="{x:Bind MsgDateTime}"
+                           FontSize="12"
+                           Foreground="SlateGray"
+                           HorizontalAlignment="Right"
+                           Margin="0,6,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid Grid.Row="2" x:Name="home">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+                <Grid Padding="15" MaxWidth="210" CornerRadius="30" HorizontalAlignment="Right" x:Name="grid1" Visibility="Collapsed">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DeepSkyBlue" Offset="0.75" />
+                            <GradientStop Color="MediumPurple" Offset="0.25"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <ListBox x:Name="listbox1" Grid.Row="0" HorizontalAlignment="Right" MaxWidth="250" MaxHeight="150" Padding="0" RequestedTheme="Light" Background="Transparent" SelectionChanged="listbox1_SelectionChanged" SelectedIndex="1">
+                        <ListBox.Shadow>
+                            <ThemeShadow/>
+                        </ListBox.Shadow>
+                        <ListBox.Resources>
+                            <Style TargetType="ListBox">
+                                <Setter Property="CornerRadius" Value="30"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <x:String>Short</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>Long</x:String>
+                    </ListBox>
+                </Grid>
+                <StackPanel x:Name="Gallery" Grid.Row="1" Background="Transparent" Padding="15">
+                    <Border x:Name="border1"  Padding="10" CornerRadius="15" Margin="0,0,0,15">
+                        <Border.Shadow>
+                            <ThemeShadow/>
+                        </Border.Shadow>
+                        <Border.RenderTransform>
+                            <TranslateTransform X="2" Y="2" />
+                        </Border.RenderTransform>
+
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFB3E5FC" Offset="0.0"/>
+                                <!-- Soft Blue -->
+                                <GradientStop Color="#FFE1BEE7" Offset="1.0"/>
+                                <!-- Soft Lavender -->
+                            </LinearGradientBrush>
+
+                        </Border.Background>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+                            <TextBlock Text="🐬 What version of Dolphy would you like today?" FontWeight="SemiBold" FontSize="14"/>
+
+                        </StackPanel>
+                    </Border>
+                    <FlipView x:Name="flipview1" Height="120" Opacity="30" Padding="25" CornerRadius="40" SelectionChanged="flipview1_SelectionChanged">
+                        <FlipView.Shadow>
+                            <ThemeShadow/>
+                        </FlipView.Shadow>
+                        <FlipView.Background>
+                            <LinearGradientBrush x:Name="color123" StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="DeepSkyBlue" Offset="0.75" />
+                                <GradientStop Color="MediumPurple" Offset="0.25"/>
+                            </LinearGradientBrush>
+                        </FlipView.Background>
+                        <GroupItem x:Name="neutral">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto">
+
+                                    </RowDefinition>
+                                    <RowDefinition Height="*">
+
+                                    </RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="Neutral ☺️" HorizontalAlignment="Center" FontFamily="{StaticResource CustomFont}" FontSize="36" FontWeight="Bold"></TextBlock>
+                                <TextBlock Grid.Row="1" Text="Calm, Relaxed, Balanced" HorizontalAlignment="Center" FontFamily="{StaticResource CustomFont}" FontSize="20" FontWeight="Bold"></TextBlock>
+                            </Grid>
+                        </GroupItem>
+                        <GroupItem x:Name="creative">
+                            <GroupItem.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="LightGoldenrodYellow" Offset="0.75" />
+                                    <GradientStop Color="LightGreen" Offset="0.25"/>
+                                </LinearGradientBrush>
+                            </GroupItem.Background>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto">
+
+                                    </RowDefinition>
+                                    <RowDefinition Height="*">
+
+                                    </RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" Text="Creative ✏️" HorizontalAlignment="Center" FontFamily="{StaticResource CustomFont}" FontSize="36" FontWeight="Bold"></TextBlock>
+                                <TextBlock Grid.Row="1" Text="Imaginative, Visionary, Expressive" HorizontalAlignment="Center" FontFamily="{StaticResource CustomFont}" FontSize="20" FontWeight="Bold"></TextBlock>
+                            </Grid>
+                        </GroupItem>
+                        <GroupItem x:Name="informative">
+                            <GroupItem.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="IndianRed" Offset="0.75" />
+                                    <GradientStop Color="Orange" Offset="0.25"/>
+                                </LinearGradientBrush>
+                            </GroupItem.Background>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto">
+
+                                    </RowDefinition>
+                                    <RowDefinition Height="*">
+
+                                    </RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" Text="Informative 📖" HorizontalAlignment="Center" FontFamily="{StaticResource CustomFont}" FontSize="36" FontWeight="Bold"></TextBlock>
+                                <TextBlock Grid.Row="1" Text="Knowledgeable, Reliable, Direct" HorizontalAlignment="Center" FontFamily="{StaticResource CustomFont}" FontSize="20" FontWeight="Bold"></TextBlock>
+                            </Grid>
+
+                        </GroupItem>
+
+
+
+
+
+                        <!--
+                        <GroupItem Visibility="Collapsed">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto">
+
+                                    </RowDefinition>
+                                    <RowDefinition Height="*">
+
+                                    </RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" Text="Custom 🛠️" HorizontalAlignment="Center" FontFamily="{StaticResource CustomFont}" FontSize="36" FontWeight="Bold"></TextBlock>
+                                <TextBlock Grid.Row="1" Text="An AI that's Yours" HorizontalAlignment="Center" FontFamily="{StaticResource CustomFont}" FontSize="20" FontWeight="Bold"></TextBlock>
+                            </Grid>
+                        </GroupItem> -->
+
+                    </FlipView>
+
+                </StackPanel>
+
+
+            </Grid>
+
+
+            <ScrollViewer Grid.Row="5">
+                
+            </ScrollViewer>
+            <StackPanel x:Name="ideas" Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="15">
+                <Button Content="Translate text" Height="40" Margin="5,0" Click="ActionButton_Click" />
+                <Button Content="Write a story" Height="40" Margin="5,0" Click="ActionButton_Click" />
+                <Button Content="Summarize" Height="40" Margin="5,0" Click="ActionButton_Click" />
+                <Button Content="Fix grammar" Height="40" Margin="5,0" Click="ActionButton_Click" />
+                <Button Content="Explain code" Height="40" Margin="5,0" Click="ActionButton_Click" />
+                <ToggleButton Content="💭 Deep Thinking" Height="40" Margin="5,0" Click="ToggleButton_Click" />
+            </StackPanel>
+            
+            
+            <Grid Grid.Row="4" CornerRadius="30" x:Name="textbox2" Height="85" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="65"/>
+                </Grid.ColumnDefinitions>
+                
+
+                <Grid.Shadow>
+                    <ThemeShadow/>
+                </Grid.Shadow>
+
+                <Grid x:Name="options" Grid.Column="0" Padding="8" Height="85" Background="MintCream">
+
+
+                    <AppBarButton Padding="35" Height="30" FontSize="20" Icon="More" IsCompact="True" ToolTipService.ToolTip="New" AutomationProperties.Name="Sort" Grid.Column="0">
+                        <AppBarButton.Flyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="➕ New Conversation" Click="MenuFlyoutItem_Click"/>
+                                <MenuFlyoutItem Text="🎙️ Voice" Click="speech_Click"/>
+                                <MenuFlyoutItem x:Name="change" Text="🗨️ Quick Chat" Click="button3_Click"/>
+                                <MenuFlyoutItem Text="🐬 Make Dolphy Yours" Click="MenuFlyoutItem_Click_2" Visibility="Collapsed"/>
+                            </MenuFlyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+                </Grid>
+
+                <Grid Grid.Column="1" Height="80" Padding="5">
+
+                    <TextBox
+              x:Name="textbox1" 
+              IsEnabled="{x:Bind VM.AcceptsMessages, Mode=OneWay}"
+              Grid.Column="1" 
+              KeyUp="TextBox_KeyUp"
+              FontSize="18"
+              FontFamily="Segoe UI Variable"       
+              Height="70"
+              Padding="10"
+              Opacity="100"  
+              TextWrapping="Wrap"
+              CornerRadius="18"
+              PlaceholderText="Just say anything and hit Enter"
+                     
+                  >
+                        <TextBox.Shadow>
+                            <ThemeShadow/>
+                        </TextBox.Shadow>
+                    </TextBox>
+                </Grid>
+
+                <Grid Grid.Column="2" Padding="0,10,0,10" >
+                    <AppBarButton x:Name="go" IsEnabled="{x:Bind VM.AcceptsMessages, Mode=OneWay}" Content="&#xE74A;" Style="{StaticResource AccentButtonStyle}" Visibility="Visible" Translation="0,0,42" FontFamily="Segoe Fluent Icons" Grid.Column="2" Height="45" Width="40" CornerRadius="17" Click="AppBarButton_Click">
+                        <AppBarButton.Shadow>
+                            <ThemeShadow/>
+                        </AppBarButton.Shadow>
+                    </AppBarButton>
+
+                    <AppBarButton x:Name="stop" Visibility="Collapsed" Content="&#xE711;" Style="{StaticResource AccentButtonStyle}"  Translation="0,0,42" FontFamily="Segoe Fluent Icons" Grid.Column="2" Height="45" Width="40" CornerRadius="17" Click="AppBarButton_Click_1">
+                        <AppBarButton.Shadow>
+                            <ThemeShadow/>
+                        </AppBarButton.Shadow>
+                    </AppBarButton>
+
+                </Grid>
+
+
+            </Grid>
+
+            <ProgressBar
+         Grid.Row="6" 
+                  IsIndeterminate="True" 
+                  Visibility="{x:Bind local:MainWindow.BoolToVisibleInversed(VM.AcceptsMessages), Mode=OneWay}" 
+                  HorizontalAlignment="Stretch"/>
+        </Grid>
+
+    </Grid>
+
+
+
+</Window>
