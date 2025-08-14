@@ -52,8 +52,11 @@ You've got two options. Open an issue and stop complaining or **use a better com
 ### **Can I use the source code?**
 No. Don't feel like I want to share it.
 
-### **Then why did you put it on GitHub**
+### **Then why did you put it on GitHub?**
 Because for SEO and for issue reporting.
+
+### **Why is it MIT Licence?**
+Because only this README.md is MIT, the rest is propietry. 
 
 ### **Are you collecting data?**
 No, the whole purpose of this app is the opposite.
