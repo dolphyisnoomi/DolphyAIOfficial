@@ -1,8 +1,9 @@
-# Dolphy AI - [Download](https://apps.microsoft.com/detail/9n7094pzch4q?hl=en-GB&gl=AU)
+# Dolphy AI 
 
-**Experience the future of AI. Offline, fast and secure, Dolphy AI is the way to go for power, productivity and privacy.**
+**Experience the future of AI. Offline, fast and secure, Dolphy AI is the way to go for power, productivity and privacy. [Download](https://apps.microsoft.com/detail/9n7094pzch4q?hl=en-GB&gl=AU) here with no regrets.**
 
 ![Screenshot](https://store-images.s-microsoft.com/image/apps.24713.14004022060923973.e6601fbe-1137-4ec7-8f50-db4734e2f21e.cd3734b9-b907-4126-b2f5-c76decba2237?h=464)
+
 
 **🔒 Safe and Secure**
 
