@@ -1,59 +1,34 @@
-# Dolphy AI 
+# [Sample] Phi3 in WinUI3 app
 
-**Experience the future of AI. Offline, fast and secure, Dolphy AI is the way to go for power, productivity and privacy. [Download](https://apps.microsoft.com/detail/9n7094pzch4q?hl=en-GB&gl=AU) here with no regrets.**
-<br></br>
+## Set Up
 
-<img width="4096" height="2160" alt="Copy of Meet Dolphy AI on Windows (4)" src="https://github.com/user-attachments/assets/efd5b9e5-0faa-4e25-84a3-f3f9ec306043" />
+You will need to have Visual Studio installed with the latest workloads for WinAppSDK and WinUI 3 development. You can find instructions on how to set up your environment [here.](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=cs-vs-community%2Ccpp-vs-community%2Cvs-2022-17-1-a%2Cvs-2022-17-1-b#install-visual-studio)
 
-<br></br>
+Clone the repository and open the solution in Visual Studio. Before you can get started exploring the sample, you will need to get the Phi3 model files required for the project.
 
-**🔒 Safe and Secure**
+## Downloading Phi3
 
-Dolphy AI uses on device processing to maximise privacy and safety powered by the .NET Desktop Runtime alongside ONNX. Zero interception of messages, Zero data collection and Zero regrets.
+The model can be downloaded from the following link:
+- https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx
 
-**🚀 Blazing Fast**
+Huggingface models are in repositories which you can clone to get the model files. Clone the Phi3 model repository and copy the required files to the phi3 folder in the project.
 
-Who wants an AI to drag on all day just because of a bad network. When it comes to Dolphy AI, your network doesn't matter, neither the server traffic.
+Phi-3-mini-4k-instruct-onnx has 3 different versions inside it's repo. We are using the DirectML versions in this project.
+Copy the contents of the "directml/directml-int4-awq-block-128" folder to the phi3 folder in the solution.
 
-**🛜 Offline Usage**
+You don't need to modify the *.csproj, as it is already including all the files in the phi3 folder to the output directory.
 
-Dolphy AI is offline first, no hassle of connecting to a suspicious 'public wifi' and enjoy a piece of mind with Dolphy AI, no internet required.
+The final folder structure should look like this:
 
-**❇️ Regular Updates**
-
-Dolphy AI is highly maintained with features incoming each month. Our team of diligent programmers are focused to provide the best user experience for our customers.
-
-**Don't miss out join millions of other users and download Dolphy AI now!**
-<br></br>
-## For the Technical Users.
-Dolphy AI is an AI app that works different to others. Instead of running AI models on the cloud we do it on-device. There are three reasons why we do this:
-
-**1) It's more private and secure**
-<br></br>
-**2) I'm kinda poor to afford a server**
-<br></br>
-**3) No one's really done it yet**
-
-Here's a diagram showing how Dolphy AI works.
-<br></br>
-<img width="1832" height="956" alt="image" src="https://github.com/user-attachments/assets/52d58371-7be5-4ada-bc24-54cbc44b31c1" />
-<br></br>
-
-## FAQ 🗨️
-### **Was the image above drawn on a Touchpad?**
-Yes, I was too lazy to get my Surface Pro.
-
-### **Is this safe?**
-Yes, it's even on the [Microsoft Store](https://apps.microsoft.com/detail/9n7094pzch4q?hl=en-GB&gl=AU).
-
-### **Is's too slow.**
-You've got two options. Open an issue and stop complaining or **use a better computer**.
-
-### **Can I use the source code?**
-Yes. It's up there!
-
-### **How do I download it?**
-Go to the [Microsoft Store](https://apps.microsoft.com/detail/9n7094pzch4q?hl=en-GB&gl=AU) or scroll up to the releases bit an press it.
-
-### **Are you collecting data?**
-No, the whole purpose of this app is the opposite.
+```
+ChatAppGenAI
+├── phi3
+│   ├── added_tokens.json
+│   ├── genai_config.json
+│   ├── model.onnx
+│   ├── model.onnx.data
+│   ├── special_tokens_map.json
+│   ├── tokenizer.json
+│   ├── tokenizer.model
+│   ├── tokenizer_config.json
+```
