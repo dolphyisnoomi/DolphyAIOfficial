@@ -1,9 +1,11 @@
 # Dolphy AI 
 
 **Experience the future of AI. Offline, fast and secure, Dolphy AI is the way to go for power, productivity and privacy. [Download](https://apps.microsoft.com/detail/9n7094pzch4q?hl=en-GB&gl=AU) here with no regrets.**
+<br></br>
 
-![Screenshot](https://store-images.s-microsoft.com/image/apps.24713.14004022060923973.e6601fbe-1137-4ec7-8f50-db4734e2f21e.cd3734b9-b907-4126-b2f5-c76decba2237?h=464)
+<img width="4096" height="2160" alt="Copy of Meet Dolphy AI on Windows (4)" src="https://github.com/user-attachments/assets/efd5b9e5-0faa-4e25-84a3-f3f9ec306043" />
 
+<br></br>
 
 **🔒 Safe and Secure**
 
@@ -22,5 +24,36 @@ Dolphy AI is offline first, no hassle of connecting to a suspicious 'public wifi
 Dolphy AI is highly maintained with features incoming each month. Our team of diligent programmers are focused to provide the best user experience for our customers.
 
 **Don't miss out join millions of other users and download Dolphy AI now!**
+<br></br>
+## For the Technical Users.
+Dolphy AI is an AI app that works different to others. Instead of running AI models on the cloud we do it on-device. There are three reasons why we do this:
 
+**1) It's more private and secure**
+<br></br>
+**2) I'm kinda poor to afford a server**
+<br></br>
+**3) No one's really done it yet**
 
+Here's a diagram showing how Dolphy AI works.
+<br></br>
+<img width="1832" height="956" alt="image" src="https://github.com/user-attachments/assets/52d58371-7be5-4ada-bc24-54cbc44b31c1" />
+<br></br>
+
+## FAQ 🗨️
+### **Was the image above drawn on a Touchpad?**
+Yes, I was too lazy to get my Surface Pro.
+
+### **Is this safe?**
+Yes, it's even on the [Microsoft Store](https://apps.microsoft.com/detail/9n7094pzch4q?hl=en-GB&gl=AU).
+
+### **Is's too slow.**
+You've got two options. Open an issue and stop complaining or **use a better computer**.
+
+### **Can I use the source code?**
+No. Don't feel like I want to share it.
+
+### **Then why did you put it on GitHub**
+Because for SEO and for issue reporting.
+
+### **Are you collecting data?**
+No, the whole purpose of this app is the opposite.
