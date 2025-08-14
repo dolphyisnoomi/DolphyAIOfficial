@@ -50,15 +50,9 @@ Yes, it's even on the [Microsoft Store](https://apps.microsoft.com/detail/9n7094
 You've got two options. Open an issue and stop complaining or **use a better computer**.
 
 ### **Can I use the source code?**
-No. Don't feel like I want to share it.
+Yes. Scroll up please.
 
-### **Then why did you put it on GitHub?**
-Because for SEO and for issue reporting.
-
-### **Why is it MIT Licence?**
-Because only this README.md is MIT, the rest is propietry. 
-
-### **If it is propietry how do I download it?**
+### **How do I download it?**
 Go to the [Microsoft Store](https://apps.microsoft.com/detail/9n7094pzch4q?hl=en-GB&gl=AU) or scroll up to the releases bit an press it.
 
 ### **Are you collecting data?**
