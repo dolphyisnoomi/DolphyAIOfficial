@@ -58,5 +58,8 @@ Because for SEO and for issue reporting.
 ### **Why is it MIT Licence?**
 Because only this README.md is MIT, the rest is propietry. 
 
+### **If it is propietry how do I download it?**
+Go to the [Microsoft Store](https://apps.microsoft.com/detail/9n7094pzch4q?hl=en-GB&gl=AU) or scroll up to the releases bit an press it.
+
 ### **Are you collecting data?**
 No, the whole purpose of this app is the opposite.
